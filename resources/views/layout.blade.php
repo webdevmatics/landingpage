@@ -29,9 +29,14 @@
             </div>
         </nav>
 
+        @if (!empty(session('message')))
+        <div class="alert alert-success text-center">
+            {{session('message')}}
+        </div>
+        @endif
         <!-- //page specific content here -->
 
-            @yield('content')
+        @yield('content')
 
 
     </div>

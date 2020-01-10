@@ -3,13 +3,9 @@
  @section('content')
 
  <div class="jumbotron text-center">
-     <h1 class="display-4">Jumbo heading</h1>
-     <p class="lead">Jumbo helper text</p>
-     <hr class="my-2">
-     <p>More info</p>
-     <p class="lead">
-         <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-     </p>
+     <h1 class="display-4">I am releasing awesome movie</h1>
+     <p class="lead">Leave your email to get notified when released</p>
+     
  </div>
 
 
@@ -25,11 +21,7 @@
                 </div>
             @endif
             
-            @if (!empty(session('message')))
-                <div class="alert alert-success">
-                    {{session('message')}}
-                </div>
-            @endif
+           
 
 
 

@@ -26,17 +26,30 @@ class ContactsController extends Controller
                 'email_address' => 'required|email'
             ]
         );
-
-        // method 1 to create data
         Contact::create(request()->except('_token'));
 
-        // method 2
-        // $contact = new Contact();
-        // $contact->first_name = request('first_name');
-        // $contact->email_address = request('email_address');
-        // $contact->save();
-
         return back()->withMessage('Data Saved!');
+
+    }
+
+    public function listOfContact()
+    {
+        $listOfContacts = Contact::all();
+
+        return view('contact-list', compact('listOfContacts'));
+        // return view('contact-list')->with(['myName'=> $myName]);
+    }
+
+    public function destroy($contactId)
+    {
+        // method 1
+        // $contact = Contact::find($contactId);
+
+        // $contact->delete();
+
+        Contact::destroy($contactId);
+
+        return back()->withMessage("contact deleted");
 
     }
 }
