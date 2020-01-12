@@ -26,7 +26,7 @@
                      <td> {{$c->email_address}}</td>
                      <td>{{$c->created_at->diffForHumans()}}</td>
                      <td>
-                         <button class="btn btn-primary btn-sm">Edit</button>
+                         <a href="/contact-edit/{{$c->id}}" class="btn btn-primary btn-sm">Edit</a>
                          <a href="/destroy-contact/{{$c->id}}" class="btn btn-danger btn-sm">Delete</a>
                      </td>
                  </tr>

@@ -26,7 +26,7 @@ class ContactsController extends Controller
                 'email_address' => 'required|email'
             ]
         );
-        Contact::create(request()->except('_token'));
+        Contact::create(request()->all());
 
         return back()->withMessage('Data Saved!');
 
@@ -51,5 +51,30 @@ class ContactsController extends Controller
 
         return back()->withMessage("contact deleted");
 
+    }
+
+    public function edit($contactId)
+    {
+        $contact = Contact::find($contactId);
+        // return view('contact-edit',['contact'=> $contact]);
+        return view('contact-edit',compact('contact'));
+    }
+
+    public function update($contactId)
+    {
+
+        $contact = Contact::find($contactId);
+
+        // $contact->update(request()->all());
+
+        $contact->first_name = request('first_name');
+        $contact->email_address = request('email_address');
+
+        $contact->save();
+
+        return redirect('/contact-list')->withMessage("contact updated");
+
+       
+        
     }
 }
